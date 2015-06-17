@@ -68,7 +68,7 @@ tidyData = function(merge_label_data) {
   melted_data <- melt(merge_label_data, id=vars, measure.vars=measure_vars)
   
   # recast 
-  dcast(melted_data, ActivityName + SubjectID ~ variable, mean)
+  rcast(melted_data, ActivityName + SubjectID ~ variable, mean)
 }
 
 #Getting the clean tidy dataset

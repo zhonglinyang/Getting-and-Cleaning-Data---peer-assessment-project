@@ -61,7 +61,7 @@ merge_label_data = function () {
 
 # Creating a second, independent tidy data set with the average of each variable for each activity and each subject. 
 tidyData = function(merge_label_data) {
-  library(reshape2)
+  library(reshape)
   
   vars = c("ActivityID", "ActivityName", "SubjectID")
   measure_vars = setdiff(colnames(merge_label_data), vars)

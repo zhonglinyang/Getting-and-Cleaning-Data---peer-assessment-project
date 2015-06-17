@@ -61,14 +61,14 @@ merge_label_data = function () {
 
 # Creating a second, independent tidy data set with the average of each variable for each activity and each subject. 
 tidyData = function(merge_label_data) {
-  library(reshape)
+  library(reshape2)
   
   vars = c("ActivityID", "ActivityName", "SubjectID")
   measure_vars = setdiff(colnames(merge_label_data), vars)
   melted_data <- melt(merge_label_data, id=vars, measure.vars=measure_vars)
   
   # recast 
-  rcast(melted_data, ActivityName + SubjectID ~ variable, mean)
+  dcast(melted_data, ActivityName + SubjectID ~ variable, mean)
 }
 
 #Getting the clean tidy dataset
